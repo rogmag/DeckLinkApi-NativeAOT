@@ -11,12 +11,40 @@ namespace DeckLinkApi.Interop
 	[TypeLibType(TypeLibTypeFlags.FCanCreate)]
 	public partial class CDeckLinkDX9ScreenPreviewHelperClass : IDeckLinkDX9ScreenPreviewHelper, CDeckLinkDX9ScreenPreviewHelper
 	{
-		public virtual extern void Initialize(IntPtr device);
+		// Not compatible with Native AOT
+		//public virtual extern void Initialize(IntPtr device);
 
-		public virtual extern void Render(ref tagRECT rc);
+		public virtual void Initialize(IntPtr device)
+		{
+			// Won't be thrown - the source generator creates a new implementation
+			throw new NotImplementedException();
+		}
 
-		public virtual extern void SetFrame(IDeckLinkVideoFrame theFrame);
+		// Not compatible with Native AOT
+		//public virtual extern void Render(ref tagRECT rc);
 
-		public virtual extern void Set3DPreviewFormat(BMD3DPreviewFormat previewFormat);
+		public virtual void Render(ref tagRECT rc)
+		{
+			// Won't be thrown - the source generator creates a new implementation
+			throw new NotImplementedException();
+		}
+
+		// Not compatible with Native AOT
+		//public virtual extern void SetFrame(IDeckLinkVideoFrame theFrame);
+
+		public virtual void SetFrame(IDeckLinkVideoFrame theFrame)
+		{
+			// Won't be thrown - the source generator creates a new implementation
+			throw new NotImplementedException();
+		}
+
+		// Not compatible with Native AOT
+		//public virtual extern void Set3DPreviewFormat(BMD3DPreviewFormat previewFormat);
+
+		public virtual void Set3DPreviewFormat(BMD3DPreviewFormat previewFormat)
+		{
+			// Won't be thrown - the source generator creates a new implementation
+			throw new NotImplementedException();
+		}
 	}
 }

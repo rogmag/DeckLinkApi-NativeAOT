@@ -11,8 +11,22 @@ namespace DeckLinkApi.Interop
 	[Guid("23A4EDF5-A0E5-432C-94EF-3BABB5F81C82")]
 	public partial class CBMDStreamingDiscoveryClass : IBMDStreamingDiscovery, CBMDStreamingDiscovery
 	{
-		public virtual extern void InstallDeviceNotifications(IBMDStreamingDeviceNotificationCallback theCallback);
+		// Not compatible with Native AOT
+		//public virtual extern void InstallDeviceNotifications(IBMDStreamingDeviceNotificationCallback theCallback);
 
-		public virtual extern void UninstallDeviceNotifications();
+		public virtual void InstallDeviceNotifications(IBMDStreamingDeviceNotificationCallback theCallback)
+		{
+			// Won't be thrown - the source generator creates a new implementation
+			throw new NotImplementedException();
+		}
+
+		// Not compatible with Native AOT
+		//public virtual extern void UninstallDeviceNotifications();
+
+		public virtual void UninstallDeviceNotifications()
+		{
+			// Won't be thrown - the source generator creates a new implementation
+			throw new NotImplementedException();
+		}
 	}
 }

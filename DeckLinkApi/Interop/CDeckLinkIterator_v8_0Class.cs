@@ -11,6 +11,13 @@ namespace DeckLinkApi.Interop
 	[TypeLibType(TypeLibTypeFlags.FCanCreate)]
 	public partial class CDeckLinkIterator_v8_0Class : IDeckLinkIterator_v8_0, CDeckLinkIterator_v8_0
 	{
-		public virtual extern void Next(out IDeckLink_v8_0 deckLinkInstance);
+		// Not compatible with Native AOT
+		//public virtual extern void Next(out IDeckLink_v8_0 deckLinkInstance);
+
+		public virtual void Next(out IDeckLink_v8_0 deckLinkInstance)
+		{
+			// Won't be thrown - the source generator creates a new implementation
+			throw new NotImplementedException();
+		}
 	}
 }

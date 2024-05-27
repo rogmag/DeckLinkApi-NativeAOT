@@ -11,8 +11,22 @@ namespace DeckLinkApi.Interop
 	[TypeLibType(TypeLibTypeFlags.FCanCreate)]
 	public partial class CDeckLinkDiscoveryClass : IDeckLinkDiscovery, CDeckLinkDiscovery
 	{
-		public virtual extern void InstallDeviceNotifications(IDeckLinkDeviceNotificationCallback deviceNotificationCallback);
+		// Not compatible with Native AOT
+		//public virtual extern void InstallDeviceNotifications(IDeckLinkDeviceNotificationCallback deviceNotificationCallback);
 
-		public virtual extern void UninstallDeviceNotifications();
+		public virtual void InstallDeviceNotifications(IDeckLinkDeviceNotificationCallback deviceNotificationCallback)
+		{
+			// Won't be thrown - the source generator creates a new implementation
+			throw new NotImplementedException();
+		}
+
+		// Not compatible with Native AOT
+		//public virtual extern void UninstallDeviceNotifications();
+
+		public virtual void UninstallDeviceNotifications()
+		{
+			// Won't be thrown - the source generator creates a new implementation
+			throw new NotImplementedException();
+		}
 	}
 }

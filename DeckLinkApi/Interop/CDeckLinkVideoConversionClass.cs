@@ -11,6 +11,13 @@ namespace DeckLinkApi.Interop
 	[Guid("7DBBBB11-5B7B-467D-AEA4-CEA468FD368C")]
 	public partial class CDeckLinkVideoConversionClass : IDeckLinkVideoConversion, CDeckLinkVideoConversion
 	{
-		public virtual extern void ConvertFrame(IDeckLinkVideoFrame srcFrame, IDeckLinkVideoFrame dstFrame);
+		// Not compatible with Native AOT
+		//public virtual extern void ConvertFrame(IDeckLinkVideoFrame srcFrame, IDeckLinkVideoFrame dstFrame);
+
+		public virtual void ConvertFrame(IDeckLinkVideoFrame srcFrame, IDeckLinkVideoFrame dstFrame)
+		{
+			// Won't be thrown - the source generator creates a new implementation
+			throw new NotImplementedException();
+		}
 	}
 }

@@ -11,10 +11,31 @@ namespace DeckLinkApi.Interop
 	[TypeLibType(TypeLibTypeFlags.FCanCreate)]
 	public partial class CBMDStreamingH264NALParserClass : IBMDStreamingH264NALParser, CBMDStreamingH264NALParser
 	{
-		public virtual extern void IsNALSequenceParameterSet(IBMDStreamingH264NALPacket nal);
+		// Not compatible with Native AOT
+		//public virtual extern void IsNALSequenceParameterSet(IBMDStreamingH264NALPacket nal);
 
-		public virtual extern void IsNALPictureParameterSet(IBMDStreamingH264NALPacket nal);
+		public virtual void IsNALSequenceParameterSet(IBMDStreamingH264NALPacket nal)
+		{
+			// Won't be thrown - the source generator creates a new implementation
+			throw new NotImplementedException();
+		}
 
-		public virtual extern void GetProfileAndLevelFromSPS(IBMDStreamingH264NALPacket nal, out uint profileIdc, out uint profileCompatability, out uint levelIdc);
+		// Not compatible with Native AOT
+		//public virtual extern void IsNALPictureParameterSet(IBMDStreamingH264NALPacket nal);
+
+		public virtual void IsNALPictureParameterSet(IBMDStreamingH264NALPacket nal)
+		{
+			// Won't be thrown - the source generator creates a new implementation
+			throw new NotImplementedException();
+		}
+
+		// Not compatible with Native AOT
+		//public virtual extern void GetProfileAndLevelFromSPS(IBMDStreamingH264NALPacket nal, out uint profileIdc, out uint profileCompatability, out uint levelIdc);
+
+		public virtual void GetProfileAndLevelFromSPS(IBMDStreamingH264NALPacket nal, out uint profileIdc, out uint profileCompatability, out uint levelIdc)
+		{
+			// Won't be thrown - the source generator creates a new implementation
+			throw new NotImplementedException();
+		}
 	}
 }

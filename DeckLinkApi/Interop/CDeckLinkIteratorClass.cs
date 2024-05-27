@@ -11,6 +11,13 @@ namespace DeckLinkApi.Interop
 	[Guid("BA6C6F44-6DA5-4DCE-94AA-EE2D1372A676")]
 	public partial class CDeckLinkIteratorClass : IDeckLinkIterator, CDeckLinkIterator
 	{
-		public virtual extern void Next(out IDeckLink deckLinkInstance);
+		// Not compatible with Native AOT
+		//public virtual extern void Next(out IDeckLink deckLinkInstance);
+
+		public virtual void Next(out IDeckLink deckLinkInstance)
+		{
+			// Won't be thrown - the source generator creates a new implementation
+			throw new NotImplementedException();
+		}
 	}
 }

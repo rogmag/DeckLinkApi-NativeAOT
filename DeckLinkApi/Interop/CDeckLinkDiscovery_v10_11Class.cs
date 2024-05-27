@@ -11,8 +11,22 @@ namespace DeckLinkApi.Interop
 	[Guid("652615D4-26CD-4514-B161-2FD5072ED008")]
 	public partial class CDeckLinkDiscovery_v10_11Class : IDeckLinkDiscovery, CDeckLinkDiscovery_v10_11
 	{
-		public virtual extern void InstallDeviceNotifications(IDeckLinkDeviceNotificationCallback deviceNotificationCallback);
+		// Not compatible with Native AOT
+		//public virtual extern void InstallDeviceNotifications(IDeckLinkDeviceNotificationCallback deviceNotificationCallback);
 
-		public virtual extern void UninstallDeviceNotifications();
+		public virtual void InstallDeviceNotifications(IDeckLinkDeviceNotificationCallback deviceNotificationCallback)
+		{
+			// Won't be thrown - the source generator creates a new implementation
+			throw new NotImplementedException();
+		}
+
+		// Not compatible with Native AOT
+		//public virtual extern void UninstallDeviceNotifications();
+
+		public virtual void UninstallDeviceNotifications()
+		{
+			// Won't be thrown - the source generator creates a new implementation
+			throw new NotImplementedException();
+		}
 	}
 }

@@ -11,12 +11,40 @@ namespace DeckLinkApi.Interop
 	[TypeLibType(TypeLibTypeFlags.FCanCreate)]
 	public partial class CDeckLinkAPIInformationClass : IDeckLinkAPIInformation, CDeckLinkAPIInformation
 	{
-		public virtual extern void GetFlag(BMDDeckLinkAPIInformationID cfgID, [MarshalAs(UnmanagedType.Bool)] out bool value);
+		// Not compatible with Native AOT
+		//public virtual extern void GetFlag(BMDDeckLinkAPIInformationID cfgID, [MarshalAs(UnmanagedType.Bool)] out bool value);
 
-		public virtual extern void GetInt(BMDDeckLinkAPIInformationID cfgID, out long value);
+		public virtual void GetFlag(BMDDeckLinkAPIInformationID cfgID, [MarshalAs(UnmanagedType.Bool)] out bool value)
+		{
+			// Won't be thrown - the source generator creates a new implementation
+			throw new System.NotImplementedException();
+		}
 
-		public virtual extern void GetFloat(BMDDeckLinkAPIInformationID cfgID, out double value);
+		// Not compatible with Native AOT
+		//public virtual extern void GetInt(BMDDeckLinkAPIInformationID cfgID, out long value);
 
-		public virtual extern void GetString(BMDDeckLinkAPIInformationID cfgID, [MarshalUsing(typeof(BStrStringMarshaller))] out string value);
+		public virtual void GetInt(BMDDeckLinkAPIInformationID cfgID, out long value)
+		{
+			// Won't be thrown - the source generator creates a new implementation
+			throw new System.NotImplementedException();
+		}
+
+		// Not compatible with Native AOT
+		//public virtual extern void GetFloat(BMDDeckLinkAPIInformationID cfgID, out double value);
+
+		public virtual void GetFloat(BMDDeckLinkAPIInformationID cfgID, out double value)
+		{
+			// Won't be thrown - the source generator creates a new implementation
+			throw new System.NotImplementedException();
+		}
+
+		// Not compatible with Native AOT
+		//public virtual extern void GetString(BMDDeckLinkAPIInformationID cfgID, [MarshalUsing(typeof(BStrStringMarshaller))] out string value);
+
+		public virtual void GetString(BMDDeckLinkAPIInformationID cfgID, [MarshalUsing(typeof(BStrStringMarshaller))] out string value)
+		{
+			// Won't be thrown - the source generator creates a new implementation
+			throw new System.NotImplementedException();
+		}
 	}
 }
